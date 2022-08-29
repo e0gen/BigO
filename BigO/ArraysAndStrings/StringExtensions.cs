@@ -17,5 +17,10 @@
             //O(1)
             return chars.Count == s.Length;
         }
+
+        public static bool CheckPermutation(this string s, string s1)
+        {
+            return true;
+        }
     }
 }

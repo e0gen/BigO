@@ -28,5 +28,30 @@ namespace BigO.UnitTests
             //Assert
             result.Should().BeFalse();
         }
+
+        [Theory]
+        [InlineData("microsoft", "softmicro")]
+        [InlineData("google", "olgoog")]
+        [InlineData("abcde", "edcba")]
+        public void CheckPermutation_OneIsPermutationOfOther_ReturnTrue(string first, string second)
+        {
+            //Act
+            var result = first.CheckPermutation(second);
+
+            //Assert
+            result.Should().BeTrue();
+        }
+
+        [Theory]
+        [InlineData("microsoft", "google")]
+        [InlineData("abcde", "abcdf")]
+        public void CheckPermutation_OneIsNotPermutationOfOther_ReturnFalse(string first, string second)
+        {
+            //Act
+            var result = first.CheckPermutation(second);
+
+            //Assert
+            result.Should().BeFalse();
+        }
     }
 }
