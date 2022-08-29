@@ -8,7 +8,7 @@
         public static bool HasUniqueChars(this string s)
         { 
             HashSet<char> chars = new();
-            //O(n) or O(1) due to assumption unique char are fixed value
+            //O(n) but actually O(1) due to assumption unique char are fixed value
             for (int i = 0; i < s.Length; i++)
             {
                 if (chars.Contains(s[i])) {
@@ -44,6 +44,33 @@
                     return false;
             }
             return true;
+        }
+
+        /// <summary>
+        /// Time Complexity is O(N). Space Complexity is O(N)
+        /// </summary>
+        public static string URLify(this string s)
+        {
+            //Memory O(N)
+            var result = new char[s.Length];
+            var shift = 0;
+
+            //Time O(N)
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i-shift] == ' ')
+                {
+                    result[i] = '%';
+                    result[i+1] = '2';
+                    result[i+2] = '0';
+                    i += 2;
+                    shift += 2;
+                    continue;
+                }
+
+                result[i] = s[i-shift];
+            }
+            return new string(result);
         }
     }
 }
