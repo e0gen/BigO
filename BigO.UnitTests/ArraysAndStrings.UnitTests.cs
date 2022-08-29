@@ -54,5 +54,17 @@ namespace BigO.UnitTests
             //Assert
             result.Should().BeFalse();
         }
+
+        [Theory]
+        [InlineData("Mr John Smith    ", "Mr%20John%20Smith")]
+        [InlineData("Hello World  ", "Hello%20World")]
+        public void URLify_SpecialString_ReturnEscaped(string input, string expected)
+        {
+            //Act
+            var result = input.URLify();
+
+            //Assert
+            result.Should().Be(expected);
+        }
     }
 }
