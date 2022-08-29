@@ -3,19 +3,20 @@
     public static class StringExtensions
     {
         /// <summary>
-        /// Time Complexity is O(N)
+        /// Time Complexity is O(1). Space Complexity is O(1)
         /// </summary>
-        public static bool IsUnique(this string s)
+        public static bool HasUniqueChars(this string s)
         { 
             HashSet<char> chars = new();
-            //O(N)
+            //O(n) or O(1) due to assumption unique char are fixed value
             for (int i = 0; i < s.Length; i++)
             {
-                //O(1)
+                if (chars.Contains(s[i])) {
+                    return false;
+                }
                 chars.Add(s[i]);
             }
-            //O(1)
-            return chars.Count == s.Length;
+            return true;
         }
 
         /// <summary>
