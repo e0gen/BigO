@@ -31,12 +31,12 @@ namespace BigO.UnitTests
 
         [Theory]
         [InlineData("microsoft", "softmicro")]
-        [InlineData("google", "olgoog")]
+        [InlineData("google", "elgoog")]
         [InlineData("abcde", "edcba")]
         public void CheckPermutation_OneIsPermutationOfOther_ReturnTrue(string first, string second)
         {
             //Act
-            var result = first.CheckPermutation(second);
+            var result = first.IsPermutationOf(second);
 
             //Assert
             result.Should().BeTrue();
@@ -44,11 +44,12 @@ namespace BigO.UnitTests
 
         [Theory]
         [InlineData("microsoft", "google")]
+        [InlineData("tessst", "teeest")]
         [InlineData("abcde", "abcdf")]
         public void CheckPermutation_OneIsNotPermutationOfOther_ReturnFalse(string first, string second)
         {
             //Act
-            var result = first.CheckPermutation(second);
+            var result = first.IsPermutationOf(second);
 
             //Assert
             result.Should().BeFalse();
