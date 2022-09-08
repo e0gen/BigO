@@ -1,9 +1,9 @@
 ﻿namespace BigO.ArraysAndStrings
 {
-    public static class StringExtensions
+    public static class Strings
     {
         /// <summary>
-        /// Time Complexity is O(1). Space Complexity is O(1)
+        /// Time Complexity is O(1).
         /// </summary>
         public static bool HasUniqueChars(this string s)
         { 
@@ -20,7 +20,7 @@
         }
 
         /// <summary>
-        /// Time Complexity is O(N). Space Complexity is O(1)
+        /// Time Complexity is O(N).
         /// </summary>
         public static bool IsPermutationOf(this string a, string b)
         {
@@ -44,33 +44,6 @@
                     return false;
             }
             return true;
-        }
-
-        /// <summary>
-        /// Time Complexity is O(N). Space Complexity is O(N)
-        /// </summary>
-        public static string URLify(this string s)
-        {
-            //Memory O(N)
-            var result = new char[s.Length];
-            var shift = 0;
-
-            //Time O(N)
-            for (int i = 0; i < s.Length; i++)
-            {
-                if (s[i-shift] == ' ')
-                {
-                    result[i] = '%';
-                    result[i+1] = '2';
-                    result[i+2] = '0';
-                    i += 2;
-                    shift += 2;
-                    continue;
-                }
-
-                result[i] = s[i-shift];
-            }
-            return new string(result);
         }
     }
 }

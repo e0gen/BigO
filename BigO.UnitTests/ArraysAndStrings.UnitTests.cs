@@ -1,7 +1,4 @@
-using BigO.ArraysAndStrings;
-using FluentAssertions;
-
-namespace BigO.UnitTests
+namespace BigO.ArraysAndStrings.UnitTests
 {
     public class ArraysAndStringsUnitTests
     {
@@ -58,13 +55,16 @@ namespace BigO.UnitTests
         [Theory]
         [InlineData("Mr John Smith    ", "Mr%20John%20Smith")]
         [InlineData("Hello World  ", "Hello%20World")]
-        public void URLify_SpecialString_ReturnEscaped(string input, string expected)
+        public void URLify_UnescapedString_ReturnEscaped(string input, string expected)
         {
+            //Arrange
+            var inputChars = input.ToCharArray();
+
             //Act
-            var result = input.URLify();
+            Arrays.URLify(ref inputChars);
 
             //Assert
-            result.Should().Be(expected);
+            new string(inputChars).Should().Be(expected);
         }
     }
 }
