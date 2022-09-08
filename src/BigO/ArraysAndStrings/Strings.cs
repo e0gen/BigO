@@ -45,7 +45,33 @@
             }
             return true;
         }
+        
+        /// <summary>
+        /// Time Complexity is O(N).
+        /// </summary>
+        public static bool HasPalindromePermutation(this string a)
+        {
+            int countOdd = 0;
+            int[] charsCount = new int[128]; // Unique chars assumption ASCII
 
+            for (int i = 0; i < a.Length; i++)
+            {
+                var charCode = char.ToLower(a[i]);
+                if (charCode < 'a' || charCode > 'z')
+                    continue;
+
+                var charIndex = charCode - 'a';
+                charsCount[charIndex]++;
+
+                if (charsCount[charIndex] % 2 == 1)
+                    countOdd++;
+                else
+                    countOdd--;
+
+            }
+
+            return countOdd <= 1;
+        }
 
         /// <summary>
         /// Time Complexity is O(N).
@@ -83,11 +109,6 @@
                         return false;
                 }
             }
-            return true;
-        }
-
-        public static bool HasPalindromePermutation(this string a)
-        {
             return true;
         }
     }

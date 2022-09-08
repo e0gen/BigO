@@ -68,24 +68,6 @@ namespace BigO.ArraysAndStrings.UnitTests
         }
 
         [Theory]
-        [InlineData("pale", "ple", true)]
-        [InlineData("pales", "pale", true)]
-        [InlineData("pale", "bale", true)]
-        [InlineData("pale", "pal", true)]
-        [InlineData("pele", "pal", false)]
-        [InlineData("pale", "bake", false)]
-        [InlineData("palepale", "bake", false)]
-        [InlineData("pale", "bakebake", false)]
-        public void IsOneEditAwayFrom_OnVariousInputs_ReturnExpectation(string first, string second, bool expected)
-        {
-            //Act
-            var result = first.IsOneEditAwayFrom(second);
-
-            //Assert
-            result.Should().Be(expected);
-        }
-
-        [Theory]
         [InlineData("Tact Coa")]
         public void HasPalindromePermutation_WhichHas_ReturnTrue(string input)
         {
@@ -105,6 +87,24 @@ namespace BigO.ArraysAndStrings.UnitTests
 
             //Assert
             result.Should().BeFalse();
+        }
+
+        [Theory]
+        [InlineData("pale", "ple", true)]
+        [InlineData("pales", "pale", true)]
+        [InlineData("pale", "bale", true)]
+        [InlineData("pale", "pal", true)]
+        [InlineData("pele", "pal", false)]
+        [InlineData("pale", "bake", false)]
+        [InlineData("palepale", "bake", false)]
+        [InlineData("pale", "bakebake", false)]
+        public void IsOneEditAwayFrom_OnVariousInputs_ReturnExpectation(string first, string second, bool expected)
+        {
+            //Act
+            var result = first.IsOneEditAwayFrom(second);
+
+            //Assert
+            result.Should().Be(expected);
         }
     }
 }
