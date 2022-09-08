@@ -45,5 +45,14 @@
             }
             return true;
         }
+
+
+        /// <summary>
+        /// Time Complexity is O(N).
+        /// </summary>
+        public static bool IsOneEditAwayFrom(this string a, string b)
+        {
+            return true;
+        }
     }
 }
