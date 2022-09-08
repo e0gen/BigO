@@ -52,6 +52,37 @@
         /// </summary>
         public static bool IsOneEditAwayFrom(this string a, string b)
         {
+            if (Math.Abs(a.Length - b.Length) > 1)
+                return false;
+            
+            int changes = 0;
+            // A == B
+            if (a.Length == b.Length)
+            {
+                for (int i = 0; i < a.Length; i++)
+                {
+                    if (a[i] != b[i])
+                    {
+                        if (++changes > 1)
+                            return false;
+                    }
+                }
+                return true;
+            }
+            // A > B => A < B
+            if (a.Length - b.Length == 1)
+            {
+                (b, a) = (a, b);
+            }
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] != b[i + changes])
+                {
+                    if (++changes > 1)
+                        return false;
+                }
+            }
             return true;
         }
     }

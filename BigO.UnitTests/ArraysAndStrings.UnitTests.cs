@@ -71,7 +71,11 @@ namespace BigO.ArraysAndStrings.UnitTests
         [InlineData("pale", "ple", true)]
         [InlineData("pales", "pale", true)]
         [InlineData("pale", "bale", true)]
+        [InlineData("pale", "pal", true)]
+        [InlineData("pele", "pal", false)]
         [InlineData("pale", "bake", false)]
+        [InlineData("palepale", "bake", false)]
+        [InlineData("pale", "bakebake", false)]
         public void IsOneEditAwayFrom_OnVariousInputs_ReturnExpectation(string first, string second, bool expected)
         {
             //Act
