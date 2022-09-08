@@ -85,5 +85,10 @@
             }
             return true;
         }
+
+        public static bool HasPalindromePermutation(this string a)
+        {
+            return true;
+        }
     }
 }

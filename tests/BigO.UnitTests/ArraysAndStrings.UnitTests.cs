@@ -84,5 +84,27 @@ namespace BigO.ArraysAndStrings.UnitTests
             //Assert
             result.Should().Be(expected);
         }
+
+        [Theory]
+        [InlineData("Tact Coa")]
+        public void HasPalindromePermutation_WhichHas_ReturnTrue(string input)
+        {
+            //Act
+            var result = input.HasPalindromePermutation();
+
+            //Assert
+            result.Should().BeTrue();
+        }
+
+        [Theory]
+        [InlineData("abcd efg")]
+        public void HasPalindromePermutation_WhichHasNot_ReturnTrue(string input)
+        {
+            //Act
+            var result = input.HasPalindromePermutation();
+
+            //Assert
+            result.Should().BeFalse();
+        }
     }
 }
