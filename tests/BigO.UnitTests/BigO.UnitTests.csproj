@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BigO\BigO.csproj" />
+    <ProjectReference Include="..\..\src\BigO\BigO.csproj" />
   </ItemGroup>
 
 </Project>
