@@ -55,9 +55,51 @@
         /// <summary>
         /// Time Complexity is O(N^2).
         /// </summary>
-        public static void ZeroMatrix<T>(ref T[,] m)
+        public static void ZeroMatrix(ref int[,] m)
         {
+            int n = (int)Math.Sqrt(m.Length);
 
+            for (int i = 0; i < n; i++)
+            {
+                if (m[i, 0] == 0)
+                    continue;
+
+                for (int j = 0; j < n; j++)
+                {
+                    if (m[0, j] == 0)
+                        continue;
+
+                    if(m[i,j] == 0)
+                    {
+                        m[0, j] = 0;
+                        m[i, 0] = 0;
+                        break;
+                    }
+                   
+                }
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                if (m[i, 0] == 0)
+                {
+                    for (int j = 0; j < n; j++)
+                    {
+                        m[i, j] = 0;
+                    }
+                }
+            }
+
+            for (int j = 0; j < n; j++)
+            {
+                if (m[0, j] == 0)
+                {
+                    for (int i = 0; i < n; i++)
+                    {
+                        m[i, j] = 0;
+                    }
+                }
+            }
         }
     }
 }
