@@ -119,5 +119,17 @@ namespace BigO.ArraysAndStrings.UnitTests
             //Assert
             result.Should().Be(expected);
         }
+
+        [Theory]
+        [InlineData("waterbottle", "erbottlewat", true)]
+        [InlineData("waterbottle", "erbottlewatt", false)]
+        public void IsRotationOf_OnVariousInputs_ReturnExpectation(string first, string second, bool expected)
+        {
+            //Act
+            var result = first.IsRotationOf(second);
+
+            //Assert
+            result.Should().Be(expected);
+        }
     }
 }

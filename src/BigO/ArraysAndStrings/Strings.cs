@@ -137,5 +137,13 @@ namespace BigO.ArraysAndStrings
 
             return sb.Length < a.Length ? sb.ToString() : a;
         }
+
+        /// <summary>
+        /// Time Complexity is O(N).
+        /// </summary>
+        public static bool IsRotationOf(this string a, string b)
+        {
+            return true;
+        }
     }
 }
