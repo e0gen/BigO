@@ -28,5 +28,13 @@
             }
             s = result;
         }
+
+        /// <summary>
+        /// Time Complexity is O(N^2).
+        /// </summary>
+        public static void RotateMatrix(ref int[,] m)
+        {
+
+        }
     }
 }
