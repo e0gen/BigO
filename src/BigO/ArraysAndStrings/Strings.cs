@@ -143,7 +143,12 @@ namespace BigO.ArraysAndStrings
         /// </summary>
         public static bool IsRotationOf(this string a, string b)
         {
-            return true;
+            if (a.Length != b.Length)
+                return false;
+
+            var c = a + b;
+
+            return c.Contains(a);
         }
     }
 }
