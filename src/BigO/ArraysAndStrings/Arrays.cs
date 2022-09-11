@@ -32,9 +32,24 @@
         /// <summary>
         /// Time Complexity is O(N^2).
         /// </summary>
-        public static void RotateMatrix(ref int[,] m)
+        public static void RotateMatrix<T>(ref T[,] m)
         {
-
+            int n = (int)Math.Sqrt(m.Length);
+            for (int depth = 0; depth < n / 2; depth++)
+            {
+                int first = depth;
+                int last = n - 1 - depth;
+                for (int i = first; i < last; i++)
+                {
+                    int offset = i - first;
+                    
+                    T tmp = m[first, i]; 
+                    m[first,i] = m[last - offset, first]; // left->top
+                    m[last - offset,first] = m[last, last - offset]; // bottom -> left
+                    m[last, last - offset] = m[i,last]; // right -> bottom
+                    m[i,last] = tmp; // top -> right
+                }
+            }
         }
     }
 }

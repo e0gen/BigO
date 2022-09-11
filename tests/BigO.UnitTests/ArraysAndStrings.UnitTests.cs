@@ -133,7 +133,7 @@ namespace BigO.ArraysAndStrings.UnitTests
         }
 
         [Fact]
-        public void RotateMatrix_OnMatrix_MakeItRotatedCounterClockwise()
+        public void RotateMatrix_OnMatrix_MatrixClockwiseRotated()
         {
             //Arrange
             var matrix = new[,] {
@@ -154,7 +154,7 @@ namespace BigO.ArraysAndStrings.UnitTests
             Arrays.RotateMatrix(ref matrix);
 
             //Assert
-            matrix.Should().Be(expected);
+            matrix.Should().BeEquivalentTo(expected);
         }
     }
 }
