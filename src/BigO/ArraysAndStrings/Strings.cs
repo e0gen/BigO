@@ -1,4 +1,6 @@
-﻿namespace BigO.ArraysAndStrings
+﻿using System.Text;
+
+namespace BigO.ArraysAndStrings
 {
     public static class Strings
     {
@@ -117,7 +119,23 @@
         /// </summary>
         public static string Compress(this string a)
         {
-            return a;
+            StringBuilder sb = new();
+            int curCount = 0;
+            
+            for (int i = 0; i < a.Length; i++)
+            {
+                curCount++;
+
+                if (i+1 >= a.Length || a[i] != a[i+1])
+                {
+                    sb.Append(a[i]);
+                    sb.Append(curCount);
+                    curCount = 0;
+                };
+            }
+
+
+            return sb.Length < a.Length ? sb.ToString() : a;
         }
     }
 }

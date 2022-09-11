@@ -108,7 +108,7 @@ namespace BigO.ArraysAndStrings.UnitTests
         }
 
         [Theory]
-        [InlineData("aabcccccaaa", "a2blc5a3")]
+        [InlineData("aabcccccaaa", "a2b1c5a3")]
         [InlineData("aabbccddeeffgg", "aabbccddeeffgg")]
         [InlineData("aabbccddeeffggg", "a2b2c2d2e2f2g3")]
         public void Compress_TextString_ReturnCompressedOrSame(string input, string expected)
