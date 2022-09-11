@@ -51,5 +51,13 @@
                 }
             }
         }
+
+        /// <summary>
+        /// Time Complexity is O(N^2).
+        /// </summary>
+        public static void ZeroMatrix<T>(ref T[,] m)
+        {
+
+        }
     }
 }

@@ -156,5 +156,30 @@ namespace BigO.ArraysAndStrings.UnitTests
             //Assert
             matrix.Should().BeEquivalentTo(expected);
         }
+
+        [Fact]
+        public void ZeroMatrix_OnMatrix_MatrixUpdated()
+        {
+            //Arrange
+            var matrix = new[,] {
+                { 1, 2, 3, 4 },
+                { 5, 0, 7, 8 },
+                { 9, 10, 11, 12 },
+                { 13, 14, 15, 0 }
+            };
+
+            var expected = new[,]{
+                {1, 0, 3, 0},
+                {0, 0, 0, 0},
+                {9, 0, 11, 0},
+                {0, 0, 0, 0}
+            };
+
+            //Act
+            Arrays.ZeroMatrix(ref matrix);
+
+            //Assert
+            matrix.Should().BeEquivalentTo(expected);
+        }
     }
 }
