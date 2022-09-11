@@ -111,5 +111,13 @@
             }
             return true;
         }
+
+        /// <summary>
+        /// Time Complexity is O(N).
+        /// </summary>
+        public static string Compress(this string a)
+        {
+            return a;
+        }
     }
 }

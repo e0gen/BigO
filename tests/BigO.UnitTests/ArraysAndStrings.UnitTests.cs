@@ -106,5 +106,18 @@ namespace BigO.ArraysAndStrings.UnitTests
             //Assert
             result.Should().Be(expected);
         }
+
+        [Theory]
+        [InlineData("aabcccccaaa", "a2blc5a3")]
+        [InlineData("aabbccddeeffgg", "aabbccddeeffgg")]
+        [InlineData("aabbccddeeffggg", "a2b2c2d2e2f2g3")]
+        public void Compress_TextString_ReturnCompressedOrSame(string input, string expected)
+        {
+            //Act
+            var result = input.Compress();
+
+            //Assert
+            result.Should().Be(expected);
+        }
     }
 }
