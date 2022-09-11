@@ -6,26 +6,24 @@
         /// <summary>
         /// Time Complexity is O(N).
         /// </summary>
-        public static LinkedList<T> RemoveDups<T>(this LinkedList<T> llist)
+        public static void RemoveDups<T>(LinkedList<T> llist)
         {
             HashSet<T> uniques = new ();
-            LinkedList<T> resultList = new ();
 
-            var currentNode = llist.First;
-
-            while (currentNode.Next is not null)
+            var node = llist.First;
+            while (node is not null)
             {
-                if(!uniques.TryGetValue(currentNode.Value, out _))
+                if(uniques.Contains(node.Value))
                 {
-                    uniques.Add(currentNode.Value);
-                    resultList.AddLast(currentNode.Value);
-                }
+                    var dup = node;
+                    node = node.Next;
+                    llist.Remove(dup); 
+                    continue;
+                } 
 
-                currentNode = currentNode.Next;
-
+                uniques.Add(node.Value);
+                node = node.Next;
             }
-
-            return resultList;
         }
     }
 }

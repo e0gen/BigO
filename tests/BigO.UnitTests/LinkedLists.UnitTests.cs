@@ -6,15 +6,15 @@ namespace BigO.LinkedLists.UnitTests
         public void RemoveDups_OnLinkedList_RemoveDuplications()
         {
             //Arrange
-            var llist = new LinkedList<int>(new[] { 1, 2, 3, 3, 3, 5, 3 });
+            var llist = new LinkedList<int>(new[] { 1, 2, 3, 3, 3, 5, 3, 9 });
 
-            var expected = new LinkedList<int>(new[] { 1, 2, 3, 5 });
+            var expected = new LinkedList<int>(new[] { 1, 2, 3, 5, 9 });
 
             //Act
-            var result = llist.RemoveDups();
+            LinkedLists.RemoveDups(llist);
 
             //Assert
-            result.Should().BeEquivalentTo(expected);
+            llist.Should().BeEquivalentTo(expected);
         }
     }
 }
