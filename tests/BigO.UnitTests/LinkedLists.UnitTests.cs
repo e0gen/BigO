@@ -11,10 +11,10 @@ namespace BigO.LinkedLists.UnitTests
             var expected = new LinkedList<int>(new[] { 1, 2, 3, 5 });
 
             //Act
-            llist.RemoveDups();
+            var result = llist.RemoveDups();
 
             //Assert
-            llist.Should().BeEquivalentTo(expected);
+            result.Should().BeEquivalentTo(expected);
         }
     }
 }
