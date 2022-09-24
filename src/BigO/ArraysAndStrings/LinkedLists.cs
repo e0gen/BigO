@@ -26,9 +26,47 @@
             }
         }
 
-        public static T FindNodeByIndexFromEnd<T>(this LinkedList<T> llist, int k)
+        /// <summary>
+        /// Time Complexity is O(N).
+        /// </summary>
+        public static LinkedListNode<T> FindNodeByIndexFromEndDouble<T>(this LinkedList<T> llist, int k)
         {
-            throw new NotImplementedException();
+            //Assume list is double linked
+            var i = 1;
+            var node = llist.Last;
+            while (node is not null)
+            {
+                if(i == k)
+                {
+                    return node;
+                }
+
+                node = node.Previous;
+                i++;
+            }
+            return node;
+        }
+
+        /// <summary>
+        /// Time Complexity is O(N).
+        /// </summary>
+        public static LinkedListNode<T> FindNodeByIndexFromEndSingle<T>(this LinkedList<T> llist, int k)
+        {
+            //Assume list is single linked
+            var i = 1;
+            var result = llist.First;
+            var node = llist.First;
+            while (node is not null)
+            {
+                if (i > k)
+                {
+                    result = result.Next;
+                }
+
+                node = node.Next;
+                i++;
+            }
+            return result;
         }
     }
 }

@@ -24,16 +24,30 @@ namespace BigO.LinkedLists.UnitTests
 
         [Theory]
         [InlineData("10 22 30 40 50 60 70 80", 2, 70)]
-        public void FindNodeByIndexFromEnd_OnLinkedList_ReturnNode(string inputList, int k, int expectedNode)
+        public void FindNodeByIndexFromEndDouble_OnLinkedList_ReturnNode(string inputList, int k, int expected)
         {
             //Arrange
             var lList = FromString(inputList);
 
             //Act
-            var node = lList.FindNodeByIndexFromEnd(k);
+            var node = lList.FindNodeByIndexFromEndDouble(k);
 
             //Assert
-            node.Should().Be(expectedNode);
+            node.Value.Should().Be(expected);
+        }
+
+        [Theory]
+        [InlineData("10 22 30 40 50 60 70 80", 2, 70)]
+        public void FindNodeByIndexFromEndSingle_OnLinkedList_ReturnNode(string inputList, int k, int expected)
+        {
+            //Arrange
+            var lList = FromString(inputList);
+
+            //Act
+            var node = lList.FindNodeByIndexFromEndSingle(k);
+
+            //Assert
+            node.Value.Should().Be(expected);
         }
     }
 }
