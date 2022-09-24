@@ -1,8 +1,8 @@
-namespace BigO.LinkedLists.UnitTests
+namespace BigO.Algorithms.LinkedLists.UnitTests
 {
     public class LinkedListsUnitTests
     {
-        private LinkedList<int> FromString(string sList)
+        private static LinkedList<int> FromString(string sList)
         {
             return new LinkedList<int>(sList.Split(' ').Select(int.Parse));
         }
@@ -33,7 +33,7 @@ namespace BigO.LinkedLists.UnitTests
             var node = lList.FindNodeByIndexFromEndDouble(k);
 
             //Assert
-            node.Value.Should().Be(expected);
+            node?.Value.Should().Be(expected);
         }
 
         [Theory]
@@ -47,7 +47,7 @@ namespace BigO.LinkedLists.UnitTests
             var node = lList.FindNodeByIndexFromEndSingle(k);
 
             //Assert
-            node.Value.Should().Be(expected);
+            node?.Value.Should().Be(expected);
         }
 
         [Theory]

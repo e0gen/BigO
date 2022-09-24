@@ -1,4 +1,4 @@
-﻿namespace BigO.LinkedLists
+﻿namespace BigO.Algorithms.LinkedLists
 {
 
     public static class LinkedLists
@@ -29,7 +29,7 @@
         /// <summary>
         /// Time Complexity is O(N).
         /// </summary>
-        public static LinkedListNode<T> FindNodeByIndexFromEndDouble<T>(this LinkedList<T> llist, int k)
+        public static LinkedListNode<T>? FindNodeByIndexFromEndDouble<T>(this LinkedList<T> llist, int k)
         {
             //Assume list is double linked
             var i = 1;
@@ -50,7 +50,7 @@
         /// <summary>
         /// Time Complexity is O(N).
         /// </summary>
-        public static LinkedListNode<T> FindNodeByIndexFromEndSingle<T>(this LinkedList<T> llist, int k)
+        public static LinkedListNode<T>? FindNodeByIndexFromEndSingle<T>(this LinkedList<T> llist, int k)
         {
             //Assume list is single linked
             var i = 1;
@@ -60,7 +60,7 @@
             {
                 if (i > k)
                 {
-                    result = result.Next;
+                    result = result?.Next;
                 }
 
                 node = node.Next;
@@ -91,7 +91,7 @@
 
                 if (i > 1)
                 {
-                    previous = previous.Next;
+                    previous = previous?.Next;
                 }
                 node = node.Next;
                 i++;

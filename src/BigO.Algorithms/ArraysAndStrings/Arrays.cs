@@ -1,4 +1,4 @@
-﻿namespace BigO.ArraysAndStrings
+﻿namespace BigO.Algorithms.ArraysAndStrings
 {
     public static class Arrays
     {

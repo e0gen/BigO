@@ -1,4 +1,4 @@
-namespace BigO.ArraysAndStrings.UnitTests
+namespace BigO.Algorithms.ArraysAndStrings.UnitTests
 {
     public class ArraysAndStringsUnitTests
     {
