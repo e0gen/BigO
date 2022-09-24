@@ -9,7 +9,7 @@ namespace BigO.LinkedLists.UnitTests
 
         [Theory]
         [InlineData("1 2 3 3 3 3 4 4 5 6 7 8 8", "1 2 3 4 5 6 7 8")]
-        public void RemoveDups_OnLinkedList_RemoveDuplications(string inputList, string expectedList)
+        public void RemoveDups_OnLinkedList_MutatedList(string inputList, string expectedList)
         {
             //Arrange
             var lList = FromString(inputList);
@@ -48,6 +48,21 @@ namespace BigO.LinkedLists.UnitTests
 
             //Assert
             node.Value.Should().Be(expected);
+        }
+
+        [Theory]
+        [InlineData("1 2 3 4 5", 3, "1 2 4 5")]
+        public void RemoveByIndexSingle_OnLinkedList_MutatedList(string inputList, int k, string expectedList)
+        {
+            //Arrange
+            var lList = FromString(inputList);
+            var expected = FromString(expectedList);
+
+            //Act
+            LinkedLists.RemoveByIndexSingle(lList, k);
+
+            //Assert
+            lList.Should().BeEquivalentTo(expected);
         }
     }
 }

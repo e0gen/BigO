@@ -68,5 +68,34 @@
             }
             return result;
         }
+
+        /// <summary>
+        /// Time Complexity is O(N).
+        /// </summary>
+        public static void RemoveByIndexSingle<T>(LinkedList<T> llist, int k)
+        {
+            var i = 1;
+            //LinkedListNode<T> 
+            var previous = llist.First;
+            var node = llist.First;
+            while (node is not null)
+            {
+                if (i == k)
+                {
+                    //our linked list is double linked and don't allow unsafe operations
+                    //therefore assume Remove() implemented like below as for single linked list
+                    //previous.Next = node.Next; 
+                    llist.Remove(node);
+                    break;
+                }
+
+                if (i > 1)
+                {
+                    previous = previous.Next;
+                }
+                node = node.Next;
+                i++;
+            }
+        }
     }
 }
