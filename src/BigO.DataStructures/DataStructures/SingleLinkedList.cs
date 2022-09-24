@@ -2,7 +2,9 @@
 
 namespace BigO.DataStructures
 {
-    //One way enumerable linked list implementation
+    /// <summary>
+    /// One way enumerable linked list implementation
+    /// </summary>
     public class SingleLinkedList<T> : IEnumerable<T>
     {
         public int Count { get; private set; }
@@ -13,12 +15,12 @@ namespace BigO.DataStructures
         {
         }
 
-        public SingleLinkedList(T[] array)
+        public SingleLinkedList(IEnumerable<T> enumerable)
         {
-            if (array == null)
-                throw new ArgumentNullException(nameof(array));
+            if (enumerable == null)
+                throw new ArgumentNullException(nameof(enumerable));
 
-            foreach (T item in array)
+            foreach (T item in enumerable)
             {
                 InsertLast(item);
             }

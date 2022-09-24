@@ -1,4 +1,6 @@
-﻿namespace BigO.Algorithms.LinkedLists
+﻿using BigO.DataStructures;
+
+namespace BigO.Algorithms.LinkedLists
 {
 
     public static class LinkedLists
@@ -50,12 +52,12 @@
         /// <summary>
         /// Time Complexity is O(N).
         /// </summary>
-        public static LinkedListNode<T>? FindNodeByIndexFromEndSingle<T>(this LinkedList<T> llist, int k)
+        public static SingleLinkedListNode<T>? FindNodeByIndexFromEnd<T>(this SingleLinkedList<T> llist, int k)
         {
             //Assume list is single linked
             var i = 1;
-            var result = llist.First;
-            var node = llist.First;
+            var result = llist.Head;
+            var node = llist.Head;
             while (node is not null)
             {
                 if (i > k)
@@ -72,20 +74,19 @@
         /// <summary>
         /// Time Complexity is O(N).
         /// </summary>
-        public static void RemoveByIndexSingle<T>(LinkedList<T> llist, int k)
+        public static void RemoveByIndex<T>(SingleLinkedList<T> llist, int k)
         {
+            if (k == 1 || k == llist.Count)
+                throw new ArgumentException("Support middle nodes only");
+
             var i = 1;
-            //LinkedListNode<T> 
-            var previous = llist.First;
-            var node = llist.First;
+            var previous = llist.Head;
+            var node = llist.Head;
             while (node is not null)
             {
                 if (i == k)
                 {
-                    //our linked list is double linked and don't allow unsafe operations
-                    //therefore assume Remove() implemented like below as for single linked list
-                    //previous.Next = node.Next; 
-                    llist.Remove(node);
+                    previous.Next = node.Next;
                     break;
                 }
 

@@ -1,5 +1,8 @@
 ﻿namespace BigO.DataStructures
-{
+{    
+     /// <summary>
+     /// Tree
+     /// </summary>
     public class Tree
     {
         private readonly int[] _buffer;

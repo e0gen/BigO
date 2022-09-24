@@ -2,6 +2,9 @@
 
 namespace BigO.DataStructures
 {
+    /// <summary>
+    /// Basic Stack
+    /// </summary>
     public class Stack<T> : IStack<T>
     {
         private T[] _array;

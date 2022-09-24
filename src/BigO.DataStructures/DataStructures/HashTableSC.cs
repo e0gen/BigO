@@ -2,7 +2,9 @@
 
 namespace BigO.DataStructures
 {
-    //Separate chaining with linked lists
+    /// <summary>
+    /// Separate chaining with linked lists 
+    /// </summary>
     public class HashTableSc
     {
         private readonly SingleLinkedList<string>[] _entries;

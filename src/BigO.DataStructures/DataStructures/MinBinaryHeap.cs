@@ -2,6 +2,9 @@
 
 namespace BigO.DataStructures
 {
+    /// <summary>
+    /// Min Binary Heap
+    /// </summary>
     public class MinBinaryHeap<T> : IPriorityQueue<T>  where T : IComparable<T>, new()
     {
         public readonly IList<string>? Log;

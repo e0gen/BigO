@@ -1,19 +1,26 @@
+using BigO.DataStructures;
+
 namespace BigO.Algorithms.LinkedLists.UnitTests
 {
     public class LinkedListsUnitTests
     {
-        private static LinkedList<int> FromString(string sList)
+        private static LinkedList<int> ParseToDoubleLL(string sList)
         {
             return new LinkedList<int>(sList.Split(' ').Select(int.Parse));
         }
 
+        private static SingleLinkedList<int> ParseToSingleLL(string sList)
+        {
+            return new SingleLinkedList<int>(sList.Split(' ').Select(int.Parse));
+        }
+
         [Theory]
         [InlineData("1 2 3 3 3 3 4 4 5 6 7 8 8", "1 2 3 4 5 6 7 8")]
-        public void RemoveDups_OnLinkedList_MutatedList(string inputList, string expectedList)
+        public void RemoveDups_OnDoubleLinkedList_MutateList(string inputList, string expectedList)
         {
             //Arrange
-            var lList = FromString(inputList);
-            var expected = FromString(expectedList);
+            var lList = ParseToDoubleLL(inputList);
+            var expected = ParseToDoubleLL(expectedList);
 
             //Act
             LinkedLists.RemoveDups(lList);
@@ -24,10 +31,10 @@ namespace BigO.Algorithms.LinkedLists.UnitTests
 
         [Theory]
         [InlineData("10 22 30 40 50 60 70 80", 2, 70)]
-        public void FindNodeByIndexFromEndDouble_OnLinkedList_ReturnNode(string inputList, int k, int expected)
+        public void FindNodeByIndexFromEnd_OnDoubleLinkedList_ReturnNode(string inputList, int k, int expected)
         {
             //Arrange
-            var lList = FromString(inputList);
+            var lList = ParseToDoubleLL(inputList);
 
             //Act
             var node = lList.FindNodeByIndexFromEndDouble(k);
@@ -38,13 +45,13 @@ namespace BigO.Algorithms.LinkedLists.UnitTests
 
         [Theory]
         [InlineData("10 22 30 40 50 60 70 80", 2, 70)]
-        public void FindNodeByIndexFromEndSingle_OnLinkedList_ReturnNode(string inputList, int k, int expected)
+        public void FindNodeByIndexFromEnd_OnSingleLinkedList_ReturnNode(string inputList, int k, int expected)
         {
             //Arrange
-            var lList = FromString(inputList);
+            var lList = ParseToSingleLL(inputList);
 
             //Act
-            var node = lList.FindNodeByIndexFromEndSingle(k);
+            var node = lList.FindNodeByIndexFromEnd(k);
 
             //Assert
             node?.Value.Should().Be(expected);
@@ -52,14 +59,14 @@ namespace BigO.Algorithms.LinkedLists.UnitTests
 
         [Theory]
         [InlineData("1 2 3 4 5", 3, "1 2 4 5")]
-        public void RemoveByIndexSingle_OnLinkedList_MutatedList(string inputList, int k, string expectedList)
+        public void RemoveByIndex_OnSingleLinkedList_MutateList(string inputList, int k, string expectedList)
         {
             //Arrange
-            var lList = FromString(inputList);
-            var expected = FromString(expectedList);
+            var lList = ParseToSingleLL(inputList);
+            var expected = ParseToSingleLL(expectedList);
 
             //Act
-            LinkedLists.RemoveByIndexSingle(lList, k);
+            LinkedLists.RemoveByIndex(lList, k);
 
             //Assert
             lList.Should().BeEquivalentTo(expected);

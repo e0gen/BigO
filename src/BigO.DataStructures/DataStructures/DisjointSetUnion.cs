@@ -1,8 +1,10 @@
 ﻿using BigO.DataStructures.Abstractions;
 
 namespace BigO.DataStructures
-{
-    //Disjoint Set with Union by rank implementation with path compression
+{    
+     /// <summary>
+     /// Disjoint Set with Union by rank implementation with path compression
+     /// </summary>
     public class DisjointSetUnion : IDisjointSetUnion
     {
         public DisjointSetUnion(int size)

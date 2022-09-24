@@ -2,6 +2,9 @@
 
 namespace BigO.DataStructures
 {
+    /// <summary>
+    /// Stack with max element
+    /// </summary>
     public class StackMax<T> : IStack<T> where T : IComparable
     {
         private readonly Stack<T> _stack;
