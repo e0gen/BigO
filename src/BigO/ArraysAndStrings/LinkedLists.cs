@@ -25,5 +25,10 @@
                 node = node.Next;
             }
         }
+
+        public static T FindNodeByIndexFromEnd<T>(this LinkedList<T> llist, int k)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
